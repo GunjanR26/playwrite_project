@@ -1,9 +1,10 @@
 const { test, expect } = require('@playwright/test');
-
+import { URLs } from './Common/URLs';
 
 test('Add new Address in My Account', async ({ page }) => {
   // Navigate to the website
-  await page.goto('https://www.testing101.net/');
+  await page.goto(URLs.pageLinkHomePage);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
@@ -88,7 +89,9 @@ test('Add new Address in My Account', async ({ page }) => {
 
 test('Address - First name field is blank', async ({ page }) => {
   // Navigate to the website
-  await page.goto('https://www.testing101.net/');
+
+  await page.goto(URLs.pageLinkHomePage);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
@@ -171,7 +174,9 @@ test('Address - First name field is blank', async ({ page }) => {
 
   test('Address - Last name field is blank', async ({ page }) => {
   // Navigate to the website
-  await page.goto('https://www.testing101.net/');
+
+  await page.goto(URLs.pageLinkHomePage);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
@@ -254,7 +259,9 @@ test('Address - First name field is blank', async ({ page }) => {
 
   test('Address - Mandatory fields are blank', async ({ page }) => {
   // Navigate to the website
-  await page.goto('https://www.testing101.net/');
+
+  await page.goto(URLs.pageLinkHomePage);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);

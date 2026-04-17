@@ -1,10 +1,14 @@
 
 import {test,expect} from '@playwright/test';
 
-test.only('End to end purchase flow with xpath locators', async ({ page }) => {
+import { URLs } from './Common/URLs';
+
+
+test('End to end purchase flow with xpath locators', async ({ page }) => {
     test.setTimeout(50000);
   // Navigate to the website
-  await page.goto('https://www.testing101.net/category/all-products');
+  await page.goto(URLs.pageLinkCategoryAllProducts);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);

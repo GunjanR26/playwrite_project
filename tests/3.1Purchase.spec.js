@@ -1,8 +1,12 @@
 const { test, expect } = require('@playwright/test');
+import { URLs } from './Common/URLs';
 
-test('Purchase scenario', async ({ page }) => {
+
+
+test.only('Purchase scenario', async ({ page }) => {
   // Navigate to the website
-  await page.goto('https://www.testing101.net/');
+  await page.goto(URLs.pageLinkHomePage);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
@@ -52,7 +56,11 @@ test('Purchase scenario', async ({ page }) => {
   // Click on Country/Region Dropdown
   await page.getByRole('combobox', { name: 'Country/Region' }).click();
 
+
   // Wait for dropdown suggestion to appear
+
+  // Select option from Region dropdown
+
   await page.getByText('United States', { exact: true }).click();
 
   //Enter Address
@@ -98,7 +106,11 @@ if (await btn.isEnabled()) {
 }
   
 // Add assertion
-const successMsg = page.getByText('You\ll receive a confirmation email soon.');
+
+
+
+const successMsg = page.getByText("You\'ll receive a confirmation email soon.");
+
 const errorMsg = page.getByText(/error|failed/i);
 
 if (await successMsg.isVisible().catch(() => false)) {

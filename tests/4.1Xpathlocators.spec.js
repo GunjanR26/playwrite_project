@@ -1,10 +1,15 @@
 const { test, expect } = require('@playwright/test');
 const { execPath } = require('node:process');
 
+import { URLs } from './Common/URLs';
+
+
 
 test('Xpath Playwright Locators', async ({ page }) => {
   // Navigate to the website
-  await page.goto('https://www.testing101.net/playwrightlocators');
+
+  await page.goto(URLs.pageLinkPlaywrightLocators);
+
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
