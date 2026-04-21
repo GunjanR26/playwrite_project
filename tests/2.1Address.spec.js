@@ -11,9 +11,9 @@ test('Add new Address in My Account', async ({ page }) => {
 
   // Check and act. If consent popup is displayed click on Consent button else click on Login option of the home page
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
-  await page.getByLabel('Consent', { exact: true }).click();
+    await page.getByLabel('Consent', { exact: true }).click();
   else
-  await page.getByTestId('handle-button').click();
+    await page.getByTestId('handle-button').click();
 
   // click on Login option from Signup
   await page.getByTestId('signUp.switchToSignUp').click();
@@ -41,16 +41,16 @@ test('Add new Address in My Account', async ({ page }) => {
 
   // Start interect with iFrame
   const frame = page.frameLocator('iframe[name^="tpapopup"]');
-  
+
   // Enter First name 
   await frame.locator('input').first().fill('Gunjan');
-  
+
   // Enter Last name 
   await frame.locator('input').nth(1).fill('Ranparia');
-  
+
   //Enter Company Name 
   await frame.locator('input').nth(2).fill('ABC Pvt Ltd.');
-  
+
   //Enter Address
   // Step 1: Type partial address
   const addressInput = frame.locator('input').nth(3);
@@ -82,25 +82,24 @@ test('Add new Address in My Account', async ({ page }) => {
 
   //Add assertion
   await expect(page.frameLocator('iframe[title="My Addresses"]').getByText('Gunjan Ranparia ABC Pvt Ltd. 123')).toBeVisible();
-  
-  
+
+
 });
 
 
 test('Address - First name field is blank', async ({ page }) => {
+
   // Navigate to the website
-
   await page.goto(URLs.pageLinkHomePage);
-
 
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
 
   // Check and act. If consent popup is displayed click on Consent button else click on Login option of the home page
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
-  await page.getByLabel('Consent', { exact: true }).click();
+    await page.getByLabel('Consent', { exact: true }).click();
   else
-  await page.getByTestId('handle-button').click();
+    await page.getByTestId('handle-button').click();
 
   // click on Login option from Signup
   await page.getByTestId('signUp.switchToSignUp').click();
@@ -120,7 +119,7 @@ test('Address - First name field is blank', async ({ page }) => {
   //Click on Stero26 option
   await page.getByTestId('handle-button').click();
 
-  //Select My Address option from dropdown
+  // Select My Address option from dropdown
   await page.getByRole('menuitem', { name: 'My Addresses' }).click();
 
   // Click on Add new Address button of My Address 
@@ -128,16 +127,16 @@ test('Address - First name field is blank', async ({ page }) => {
 
   // Start interect with iFrame
   const frame = page.frameLocator('iframe[name^="tpapopup"]');
-  
+
   // Enter First name 
   await frame.locator('input').first().fill('');
-  
+
   // Enter Last name 
   await frame.locator('input').nth(1).fill('Ranparia');
-  
+
   //Enter Company Name 
   await frame.locator('input').nth(2).fill('ABC Pvt Ltd.');
-  
+
   //Enter Address
   // Step 1: Type partial address
   const addressInput = frame.locator('input').nth(3);
@@ -169,10 +168,11 @@ test('Address - First name field is blank', async ({ page }) => {
 
   //Add assertion
   await expect(frame.getByText('Please enter first name')).toBeVisible();
-  });
+
+});
 
 
-  test('Address - Last name field is blank', async ({ page }) => {
+test('Address - Last name field is blank', async ({ page }) => {
   // Navigate to the website
 
   await page.goto(URLs.pageLinkHomePage);
@@ -183,9 +183,9 @@ test('Address - First name field is blank', async ({ page }) => {
 
   // Check and act. If consent popup is displayed click on Consent button else click on Login option of the home page
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
-  await page.getByLabel('Consent', { exact: true }).click();
+    await page.getByLabel('Consent', { exact: true }).click();
   else
-  await page.getByTestId('handle-button').click();
+    await page.getByTestId('handle-button').click();
 
   // click on Login option from Signup
   await page.getByTestId('signUp.switchToSignUp').click();
@@ -213,16 +213,16 @@ test('Address - First name field is blank', async ({ page }) => {
 
   // Start interect with iFrame
   const frame = page.frameLocator('iframe[name^="tpapopup"]');
-  
+
   // Enter First name 
   await frame.locator('input').first().fill('Gunjan');
-  
+
   // Enter Last name 
   await frame.locator('input').nth(1).fill('');
-  
+
   //Enter Company Name 
   await frame.locator('input').nth(2).fill('ABC Pvt Ltd.');
-  
+
   //Enter Address
   // Step 1: Type partial address
   const addressInput = frame.locator('input').nth(3);
@@ -254,10 +254,10 @@ test('Address - First name field is blank', async ({ page }) => {
 
   //Add assertion
   await expect(frame.getByText('Please enter last name')).toBeVisible();
-  });
+});
 
 
-  test('Address - Mandatory fields are blank', async ({ page }) => {
+test('Address - Mandatory fields are blank', async ({ page }) => {
   // Navigate to the website
 
   await page.goto(URLs.pageLinkHomePage);
@@ -268,9 +268,9 @@ test('Address - First name field is blank', async ({ page }) => {
 
   // Check and act. If consent popup is displayed click on Consent button else click on Login option of the home page
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
-  await page.getByLabel('Consent', { exact: true }).click();
+    await page.getByLabel('Consent', { exact: true }).click();
   else
-  await page.getByTestId('handle-button').click();
+    await page.getByTestId('handle-button').click();
 
   // click on Login option from Signup
   await page.getByTestId('signUp.switchToSignUp').click();
@@ -298,16 +298,16 @@ test('Address - First name field is blank', async ({ page }) => {
 
   // Start interect with iFrame
   const frame = page.frameLocator('iframe[name^="tpapopup"]');
-  
+
   // Enter First name 
   await frame.locator('input').first().fill('');
-  
+
   // Enter Last name 
   await frame.locator('input').nth(1).fill('');
-  
+
   //Enter Company Name 
   await frame.locator('input').nth(2).fill('ABC Pvt Ltd.');
-  
+
   //Enter Address
   // Step 1: Type partial address
   const addressInput = frame.locator('input').nth(3);
@@ -340,5 +340,5 @@ test('Address - First name field is blank', async ({ page }) => {
   //Add assertion
   await expect(frame.getByText('Please enter first name')).toBeVisible();
   await expect(frame.getByText('Please enter last name')).toBeVisible();
-  
-  });
+
+});

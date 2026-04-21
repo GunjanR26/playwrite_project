@@ -3,7 +3,7 @@ import { URLs } from './Common/URLs';
 
 
 
-test.only('Purchase scenario', async ({ page }) => {
+test('Purchase scenario', async ({ page }) => {
   // Navigate to the website
   await page.goto(URLs.pageLinkHomePage);
 
@@ -91,7 +91,7 @@ test.only('Purchase scenario', async ({ page }) => {
   //await page.waitForTimeout(2000);
 
   // Click on Continue button of order summary
-  await page.getByRole('button', { name: 'Continue', exact: true}).click();
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
 
   //Wait for page load
   ///await page.waitForTimeout(5000);
@@ -99,29 +99,29 @@ test.only('Purchase scenario', async ({ page }) => {
   // Click on Place Order & Pay button
   const btn = page.getByRole('button', { name: 'Place Order & Pay', exact: true });
 
-if (await btn.isEnabled()) {
-  await btn.click();
-} else {
-  console.log('Button is disabled - cannot place order');
-}
-  
-// Add assertion
+  if (await btn.isEnabled()) {
+    await btn.click();
+  } else {
+    console.log('Button is disabled - cannot place order');
+  }
+
+  // Add assertion
 
 
 
-const successMsg = page.getByText("You\'ll receive a confirmation email soon.");
+  const successMsg = page.getByText("You\'ll receive a confirmation email soon.");
 
-const errorMsg = page.getByText(/error|failed/i);
+  const errorMsg = page.getByText(/error|failed/i);
 
-if (await successMsg.isVisible().catch(() => false)) {
-  console.log('✅ Order success');
-} else if (await errorMsg.isVisible().catch(() => false)) {
-  console.log('❌ Order failed');
-} else {
-  console.log('⚠️ Unknown state');
-}
- await page.pause();
-  
+  if (await successMsg.isVisible().catch(() => false)) {
+    console.log('✅ Order success');
+  } else if (await errorMsg.isVisible().catch(() => false)) {
+    console.log('❌ Order failed');
+  } else {
+    console.log('⚠️ Unknown state');
+  }
+  await page.pause();
+
 });
 
 

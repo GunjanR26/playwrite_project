@@ -16,8 +16,8 @@ test('Xpath Playwright Locators', async ({ page }) => {
 
   // Check and act. If consent popup is displayed click on Consent button else click on Login option of the home page
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
-  await page.getByLabel('Consent', { exact: true }).click();
-  
+    await page.getByLabel('Consent', { exact: true }).click();
+
 
   //Xpath Locators
   await page.locator('xpath=//input[@name="first-name"]').fill('Gunjan');
@@ -30,15 +30,15 @@ test('Xpath Playwright Locators', async ({ page }) => {
   await page.locator("xpath=//input[@class='cCdhN7']").check();
   await page.locator("xpath=//span[text()='Submit']").click();
   //await page.pause()
-  
+
 
   //Interaction with iFrame + add assertion
 
-await expect(page.locator("xpath=//h2[@data-testid='title' and text()='Verification']")).toBeVisible();
-await page.waitForTimeout(2000);
-//expect() is only for assertions (toBeVisible, toHaveText, etc.)
-//❌ You cannot use .click() , .tobechecked() on expect()
-await page.locator("xpath=//*[name()='svg']/*[name()='path' and @fill='#000']").click();
+  await expect(page.locator("xpath=//h2[@data-testid='title' and text()='Verification']")).toBeVisible();
+  await page.waitForTimeout(2000);
+  //expect() is only for assertions (toBeVisible, toHaveText, etc.)
+  //❌ You cannot use .click() , .tobechecked() on expect()
+  await page.locator("xpath=//*[name()='svg']/*[name()='path' and @fill='#000']").click();
 
 
 });
