@@ -5,6 +5,7 @@ import { pagePLP } from './PageObjects.js/PagePLP';
 import { ConsentPopup } from './Common/ConsentPopup';
 import { pageCartPage } from './PageObjects.js/PageCartpage';
 import { pageCheckoutPage } from './PageObjects.js/PageCheckoutPage';
+import { testData } from './Common/TestData';
 
 
 test.only('End to end purchase flow with xpath locators', async ({ page }) => {
@@ -43,6 +44,7 @@ test.only('End to end purchase flow with xpath locators', async ({ page }) => {
   await expect(confirmationmessage).not.toBeVisible();
 
   const cartPage = new pageCartPage(page);
+  
   // Click on View Cart button
   const buttonViewcart = page.locator(cartPage.buttonViewcart);
   //await buttonViewcart.waitFor();
@@ -57,21 +59,22 @@ test.only('End to end purchase flow with xpath locators', async ({ page }) => {
   await expect(checkoutconfirmation).not.toBeVisible();
 
   const checkoutPage = new pageCheckoutPage(page);
+
   // Enter Email
   const textboxEmail = page.locator(checkoutPage.textboxEmail);
-  await textboxEmail.fill('test@example.com');
+  await textboxEmail.fill(testData.checkoutCustomerDetils.Email);
 
   // Enter Firstname
   const textboxFirstName = page.locator(checkoutPage.textboxFirstName);
-  await textboxFirstName.fill('Gunjan');
+  await textboxFirstName.fill(testData.checkoutCustomerDetils.FirstName);
 
   // Enter Lastname
   const textboxLastName = page.locator(checkoutPage.textboxLastName);
-  await textboxLastName.fill('Ranparia');
+  await textboxLastName.fill(testData.checkoutCustomerDetils.LastName);
 
   // Enter PhoneNumber
   const textboxPhoneNumber = page.locator(checkoutPage.textboxPhoneNumber);
-  await textboxPhoneNumber.fill('+1234567890');
+  await textboxPhoneNumber.fill(testData.checkoutCustomerDetils.PhoneNumber);
 
   // Click on Region Dropdown
   const dropdownRegion = page.locator(checkoutPage.dropdownRegion);
@@ -84,14 +87,12 @@ test.only('End to end purchase flow with xpath locators', async ({ page }) => {
   // Enter Address
   // Step 1: Type partial address
   const address = checkoutPage.address;
-  
-  //('input[type="text"]').nth(3);
   await address.click();
-  await address.fill('123 William');
+  await address.fill(testData.checkoutDeliveryDetails.Address);
   await address.press('ArrowDown');   // trigger dropdown
 
   // Step 2: Wait for dropdown suggestion to appear
-  const option = page.getByText('William Street, New York, NY, USA');
+  const option = page.getByText(testData.checkoutDeliveryDetails.AddressOption);
   await option.waitFor({ state: 'visible' });
 
   // Step 3: Click the correct address from dropdown
