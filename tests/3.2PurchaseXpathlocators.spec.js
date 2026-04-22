@@ -3,9 +3,11 @@ import { test, expect } from '@playwright/test';
 import { URLs } from './Common/URLs';
 import { pagePLP } from './PageObjects.js/PagePLP';
 import { ConsentPopup } from './Common/ConsentPopup';
+import { pageCartPage } from './PageObjects.js/PageCartpage';
+import { pageCheckoutPage } from './PageObjects.js/PageCheckoutPage';
 
 
-test('End to end purchase flow with xpath locators', async ({ page }) => {
+test.only('End to end purchase flow with xpath locators', async ({ page }) => {
   test.setTimeout(50000);
 
   // Navigate to the website
@@ -15,9 +17,6 @@ test('End to end purchase flow with xpath locators', async ({ page }) => {
   //const consentPopupWindow = new ConsentPopup(page);
   //await consentPopupWindow.clickManageOptions();
 
-  //
-
-
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
 
@@ -25,62 +24,68 @@ test('End to end purchase flow with xpath locators', async ({ page }) => {
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
     await page.getByLabel('Consent', { exact: true }).click();
 
+  const plpPage = new pagePLP(page);
+
   // Click on Shop option from dropdown
-  const buttonSorting = page.locator("xpath=//span[text()='Sorting']");
+  const buttonSorting = page.locator(plpPage.buttonSorting);
   await buttonSorting.click();
 
   //Wait a bit after page load (to allow products to appear)
   await page.waitForTimeout(5000);
 
   // Click on Add To Cart button
-  const buttonAddtocart = page.locator("xpath=//div[@data-slug='americano']//button[@data-hook='product-item-add-to-cart-button']");
+  const buttonAddtocart = page.locator(plpPage.buttonAddtocart);
   await buttonAddtocart.waitFor();
   await buttonAddtocart.click();
 
   //Add Assertion
-  const confirmationmessage = page.locator("xpath=//span[@data-hook='BodyDataHooks.emptyState']");
+  const confirmationmessage = page.locator(plpPage.confirmationmessage);
   await expect(confirmationmessage).not.toBeVisible();
 
+  const cartPage = new pageCartPage(page);
   // Click on View Cart button
-  const buttonViewcart = page.locator("xpath=//div[@class='swz4Kl_']//button[@data-hook='CartButtonDataHooks.root']");
+  const buttonViewcart = page.locator(cartPage.buttonViewcart);
   //await buttonViewcart.waitFor();
   await buttonViewcart.click();
 
   //Click on CheckOut button
-  const buttonCheckout = page.locator("xpath=//div[@data-hook='CheckoutButtons.default']//a[@data-hook='CheckoutButtonDataHook.button']");
+  const buttonCheckout = page.locator(cartPage.buttonCheckout);
   await buttonCheckout.click();
 
   //Add Assertion
-  const checkoutconfirmation = page.locator("xpath=//div[@data-hook='EmptyState.root']//h2[@data-hook='EmptyState.title']");
+  const checkoutconfirmation = page.locator(cartPage.checkoutconfirmation);
   await expect(checkoutconfirmation).not.toBeVisible();
 
+  const checkoutPage = new pageCheckoutPage(page);
   // Enter Email
-  const textboxEmail = page.locator("xpath=//input[@type='email' and @aria-label='Email']");
+  const textboxEmail = page.locator(checkoutPage.textboxEmail);
   await textboxEmail.fill('test@example.com');
 
   // Enter Firstname
-  const textboxFirstName = page.locator("xpath=//input[@type='text' and @aria-label='First name']");
+  const textboxFirstName = page.locator(checkoutPage.textboxFirstName);
   await textboxFirstName.fill('Gunjan');
 
   // Enter Lastname
-  const textboxLastName = page.locator("xpath=//input[@type='text' and @aria-label='Last name']");
+  const textboxLastName = page.locator(checkoutPage.textboxLastName);
   await textboxLastName.fill('Ranparia');
 
   // Enter PhoneNumber
-  const textboxPhoneNumber = page.locator("xpath=//input[@aria-label='Phone']");
+  const textboxPhoneNumber = page.locator(checkoutPage.textboxPhoneNumber);
   await textboxPhoneNumber.fill('+1234567890');
 
   // Click on Region Dropdown
-  const dropdownRegion = page.locator("xpath=//input[@role='combobox' and @value='India']");
+  const dropdownRegion = page.locator(checkoutPage.dropdownRegion);
   await dropdownRegion.click();
 
   // Select option from Region dropdown
-  const selectRegion = page.locator("xpath=//div[@role='option' and @title='United States']");
+  const selectRegion = page.locator(checkoutPage.selectRegion);
   await selectRegion.click();
 
   // Enter Address
   // Step 1: Type partial address
-  const address = page.locator('input[type="text"]').nth(3);
+  const address = checkoutPage.address;
+  
+  //('input[type="text"]').nth(3);
   await address.click();
   await address.fill('123 William');
   await address.press('ArrowDown');   // trigger dropdown
@@ -96,15 +101,15 @@ test('End to end purchase flow with xpath locators', async ({ page }) => {
   await page.waitForTimeout(2000);
 
   // Click on Continue button
-  const buttonContinue = page.locator("xpath=//button[.//span[text()='Continue']]");
+  const buttonContinue = page.locator(checkoutPage.buttonContinue);
   await buttonContinue.click();
 
   // Click on Continue button of order summary
-  const buttonOrdersummaryContinue = page.locator("xpath=//button[@data-hook='DeliverySectionWrapperDataHook.button']");
+  const buttonOrdersummaryContinue = page.locator(checkoutPage.buttonOrdersummaryContinue);
   await buttonOrdersummaryContinue.click();
 
   // Click on Place Order & Pay button
-  const buttonplaceorderandpay = page.locator("xpath=//button[@data-hook='place-order-button']");
+  const buttonplaceorderandpay = page.locator(checkoutPage.buttonplaceorderandpay);
   await buttonplaceorderandpay.click();
 
   // Wait for load time

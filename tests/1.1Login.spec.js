@@ -2,15 +2,6 @@ const { test, expect } = require('@playwright/test');
 import { URLs } from './Common/URLs';
 
 
-test.only('Load site with fresh session', async ({ browser }) => {
-  const context = await browser.newContext(); // new clean session
-  const page = await context.newPage();
-  // Navigate to the website
-  await page.goto(URLs.pageLinkHomePage);
-  await page.pause();
-});
-
-
 test('Login with valid credentials', async ({ page }) => {
   // Navigate to the website
   await page.goto(URLs.pageLinkHomePage);
