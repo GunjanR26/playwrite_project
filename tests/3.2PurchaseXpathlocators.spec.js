@@ -8,7 +8,7 @@ import { pageCheckoutPage } from './PageObjects.js/PageCheckoutPage';
 import { testData } from './Common/TestData';
 
 
-test.only('End to end purchase flow with xpath locators', async ({ page }) => {
+test('End to end purchase flow with xpath locators', async ({ page }) => {
   test.setTimeout(50000);
 
   // Navigate to the website

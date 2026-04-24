@@ -1,0 +1,28 @@
+class pageLogin {
+
+    constructor(page) {
+        this.page = page;
+
+        // Define the Xpath of Login 
+        this.buttonLoginHeader = "xpath=//button[.//span[normalize-space()='Log In']]";
+        this.fieldEmail = "xpath=//input[@type='email']";
+        this.fieldPassword = "xpath=//input[@type='password']"
+        this.Loginbutton = "xpath=//button[@aria-label='Log In']";
+        this.sucessLogin = "xpath=//div[contains(@class,'ukB2Bd') and contains(.,'stero26')]";
+        this.blankEmailError = "xpath=//span[@data-testid='siteMembers.inlineErrorMsg' and normalize-space()='Email cannot be blank']";
+        this.blankPasswordError = "xpath=//span[@data-testid='siteMembers.inlineErrorMsg' and normalize-space()='Make sure you enter a password.']";
+        this.invalidLoginDetails = 'xpath=//span[normalize-space()="This email doesn\'t match any account. Try again."]';
+        this.invalidEmailFormat = 'xpath=//span[normalize-space()="Double check your email and try again."]';
+        this.leadingtrailingSpacePassword = "xpath=//*[normalize-space()='Wrong email or password']";
+        this.spaceinEmail = 'xpath=//span[normalize-space()="Double check your email and try again."]';
+        this.spaceinPassword = "xpath=//span[@data-testid='siteMembers.inlineErrorMsg' and normalize-space()='Wrong email or password']";
+        this.invalidEmail = 'xpath=//span[normalize-space()="This email doesn\'t match any account. Try again."]';
+        this.invalidPassword = "xpath=//*[normalize-space()='Wrong email or password']";
+
+
+
+    }
+
+}
+
+export { pageLogin };

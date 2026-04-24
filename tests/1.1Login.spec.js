@@ -7,7 +7,7 @@ test('Login with valid credentials', async ({ page }) => {
   await page.goto(URLs.pageLinkHomePage);
   // Wait a bit after page load (to allow popup to appear)
   await page.waitForTimeout(5000);
-  
+
 
   // Check and act. If consent popup is displayed click on Consent button else click on Login option of the home page
   if (await page.getByLabel('Consent', { exact: true }).isVisible())
