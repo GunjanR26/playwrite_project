@@ -13,7 +13,9 @@ export class testData {
     static checkoutDeliveryDetails =
         {
             Address: '123 William',
-            AddressOption: 'William Street, New York, NY, USA'
+            AddressOption: 'William Street, New York, NY, USA',
+            CompanyName: 'Inevitable Info tech',
+            AddressLine2: 'Test'
         }
 
     static validLoginDetails =
@@ -50,5 +52,6 @@ export class testData {
         middleSpacePassword: '123 456',
     }
 
+    
 
 }
