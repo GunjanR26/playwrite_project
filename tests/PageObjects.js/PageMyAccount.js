@@ -18,7 +18,8 @@ class pageMyAccount {
         this.fieldPhoneNumber = "xpath=//input[@data-hook='phone']";
         this.buttonAddAddress = "xpath=//button[@data-hook='submit-add-address']"
         this.assertionMessage ='xpath=//div[contains(text(),"haven\'t saved any addresses")]';
-
+        this.blankFirstNameErrorMessage = "xpath=//label[@data-hook='error-message' and @for='firstName-field' and text()='Please enter first name']";
+        this.blankLastNameErrorMessage = "xpath=//label[@data-hook='error-message' and @for='lastName-field' and text()='Please enter last name']";
     }
 }
 export { pageMyAccount };
