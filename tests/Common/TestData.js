@@ -54,9 +54,21 @@ export class testData {
 
     static validSignUpDetails =
     {
-        validUnregisteredEmail: 'test1@example.com',
+        validUnregisteredEmail: 'test10@example.com',
         validUnregisteredPassword: '123456',
     }
+
+    static leadingtrailingSpaceSignUp =
+    {
+        leadingtrailingSpaceEmail: '  stero28@gmail.com  ',
+        leadingtrailingSpacePassword: ' 123456  ',
+    }
+
+    static middleSpaceSignUp =
+    {
+        middleSpaceEmailSignUp: 'stero 29@gmail .com',
+        middleSpacePasswordSignUp: '123 456',
     
 
+    }
 }

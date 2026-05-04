@@ -30,7 +30,7 @@ test('Login with valid credentials', async ({ page }) => {
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
 
-    // Enter valid email
+    // Enter valid Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.validLoginDetails.validEmail);
 
@@ -72,23 +72,25 @@ test('Login with empty fields of login form', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
-    const fieldEmail = page.locator(LoginPage.fieldEmail);
-    await fieldEmail.fill(testData.blankLoginDetails.blankEmail);
 
-    //Enter valid Password
+    //Do not enter Email
+    const fieldEmail = page.locator(LoginPage.fieldEmail);
+    await fieldEmail.fill('');
+
+    //Do not enter Password
     const fieldPassword = page.locator(LoginPage.fieldPassword);
-    await fieldPassword.fill(testData.blankLoginDetails.blankPassword);
+    await fieldPassword.fill('');
 
     // Click on Login button of login form
     const Loginbutton = page.locator(LoginPage.Loginbutton);
     await Loginbutton.click();
 
     // Assert error messages
-    const blankEmailError = page.locator(LoginPage.blankEmailError);
-    await expect(blankEmailError).toBeVisible();
+    const blankEmailErrorLogIn = page.locator(LoginPage.blankEmailErrorLogIn);
+    await expect(blankEmailErrorLogIn).toBeVisible();
 
-    const blankPasswordError = page.locator(LoginPage.blankPasswordError);
-    await expect(blankPasswordError).toBeVisible();
+    const blankPasswordErrorLogIn = page.locator(LoginPage.blankEmailErrorLogIn);
+    await expect(blankPasswordErrorLogIn).toBeVisible();
 
 });
 
@@ -118,6 +120,8 @@ test('Login with blank email', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Do not enter Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.blankLoginDetails.blankEmail);
 
@@ -130,8 +134,8 @@ test('Login with blank email', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const blankEmailError = page.locator(LoginPage.blankEmailError);
-    await expect(blankEmailError).toBeVisible();
+    const blankEmailErrorLogIn = page.locator(LoginPage.blankEmailErrorLogIn);
+    await expect(blankEmailErrorLogIn).toBeVisible();
 
 });
 
@@ -162,10 +166,12 @@ test('Login with blank password', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter valid Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.validLoginDetails.validEmail);
 
-    //Enter valid Password
+    //Do not enter Password
     const fieldPassword = page.locator(LoginPage.fieldPassword);
     await fieldPassword.fill(testData.blankLoginDetails.blankPassword);
 
@@ -174,8 +180,8 @@ test('Login with blank password', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const blankPasswordError = page.locator(LoginPage.blankPasswordError);
-    await expect(blankPasswordError).toBeVisible();
+    const blankPasswordErrorLogIn = page.locator(LoginPage.blankPasswordErrorLogIn);
+    await expect(blankPasswordErrorLogIn).toBeVisible();
 
 });
 
@@ -206,10 +212,12 @@ test('Login with invalid credentials', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter invalid Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.invalidLoginDetails.invalidEmail);
 
-    //Enter valid Password
+    //Enter invalid Password
     const fieldPassword = page.locator(LoginPage.fieldPassword);
     await fieldPassword.fill(testData.invalidLoginDetails.invalidPassword);
 
@@ -250,6 +258,8 @@ test('Login with invalid email format', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter invalid Email format
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.invalidformat.invaidEmailformat);
 
@@ -262,8 +272,8 @@ test('Login with invalid email format', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const invalidEmailFormat = page.locator(LoginPage.invalidEmailFormat);
-    await expect(invalidEmailFormat).toBeVisible();
+    const invalidEmailFormatLogIn = page.locator(LoginPage.invalidEmailFormatLogIn);
+    await expect(invalidEmailFormatLogIn).toBeVisible();
 
 });
 
@@ -294,10 +304,12 @@ test('Login with leading and trailing spaces in email and password', async ({ pa
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    // Enter Email with leading and trailing space
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.leadingtrailingSpace.leadingtrailingSpaceEmail);
 
-    //Enter valid Password
+    //Enter  Password with leading and trailing space
     const fieldPassword = page.locator(LoginPage.fieldPassword);
     await fieldPassword.fill(testData.leadingtrailingSpace.leadingtrailingSpacePassword);
 
@@ -339,6 +351,8 @@ test('Login with middle space in email', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter Email with middle space
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.middleSpace.middleSpaceEmail);
 
@@ -384,10 +398,12 @@ test('Login with middle space in password', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter Valid Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.validLoginDetails.validEmail);
 
-    //Enter valid Password
+    //Enter  Password with middle space
     const fieldPassword = page.locator(LoginPage.fieldPassword);
     await fieldPassword.fill(testData.middleSpace.middleSpacePassword);
 
@@ -428,6 +444,8 @@ test('Email invalid and password valid', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter Unregistered Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.invalidLoginDetails.invalidEmail);
 
@@ -472,10 +490,12 @@ test('Email valid and password invalid', async ({ page }) => {
 
     // Wait a bit after page load (to allow popup to appear)
     await page.waitForTimeout(5000);
+
+    //Enter valid registered Email
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.validLoginDetails.validEmail);
 
-    //Enter valid Password
+    //Enter invalidor incorrect  Password
     const fieldPassword = page.locator(LoginPage.fieldPassword);
     await fieldPassword.fill(testData.invalidLoginDetails.invalidPassword);
 
