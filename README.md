@@ -122,6 +122,6 @@ npx playwright show-report
 
 ## 👤 Author
 
-Your Name
+Gunjan Ranparia
 
 ---
