@@ -115,7 +115,6 @@ npx playwright show-report
 
 ## ⚠️ Notes
 
-* Avoid hardcoded waits (`waitForTimeout`)
 * Prefer Playwright built-in locators over XPath
 * Keep locators centralized in POM files
 
