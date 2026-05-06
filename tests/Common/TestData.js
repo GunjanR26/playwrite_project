@@ -32,7 +32,7 @@ export class testData {
 
     static invalidLoginDetails =
         {
-            invalidEmail: 'test@example.com',
+            invalidEmail: 'testing@example.com',
             invalidPassword: '654321',
         }
     static invalidformat =

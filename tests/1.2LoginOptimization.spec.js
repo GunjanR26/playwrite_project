@@ -318,8 +318,9 @@ test('Login with leading and trailing spaces in email and password', async ({ pa
     await Loginbutton.click();
 
     // Assert error messages
-    const leadingtrailingSpacePassword = page.locator(LoginPage.leadingtrailingSpacePassword);
-    await expect(leadingtrailingSpacePassword).toBeVisible();
+    const leadingtrailingSpacePasswordLogIn = page.locator(LoginPage.leadingtrailingSpacePasswordLogIn);
+    await expect(leadingtrailingSpacePasswordLogIn).toBeVisible();
+    
 
 });
 
@@ -365,8 +366,9 @@ test('Login with middle space in email', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const spaceinEmail = page.locator(LoginPage.spaceinEmail);
-    await expect(spaceinEmail).toBeVisible();
+    const spaceinEmailLogIn = page.locator(LoginPage.spaceinEmailLogIn);
+    await expect(spaceinEmailLogIn).toBeVisible();
+   
 
 });
 
@@ -412,9 +414,9 @@ test('Login with middle space in password', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const spaceinPassword = page.locator(LoginPage.spaceinPassword);
-    await expect(spaceinPassword).toBeVisible();
-
+    const spaceinPasswordLogIn = page.locator(LoginPage.spaceinPasswordLogIn);
+    await expect(spaceinPasswordLogIn).toBeVisible();
+    
 });
 
 test('Email invalid and password valid', async ({ page }) => {
@@ -458,8 +460,10 @@ test('Email invalid and password valid', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const invalidEmail = page.locator(LoginPage.invalidEmail);
-    await expect(invalidEmail).toBeVisible();
+    const invalidEmailLogIn = page.locator(LoginPage.invalidEmailLogIn);
+    await expect(invalidEmailLogIn).toBeVisible();
+    
+
 
 });
 
@@ -495,7 +499,7 @@ test('Email valid and password invalid', async ({ page }) => {
     const fieldEmail = page.locator(LoginPage.fieldEmail);
     await fieldEmail.fill(testData.validLoginDetails.validEmail);
 
-    //Enter invalidor incorrect  Password
+    //Enter  incorrect  Password
     const fieldPassword = page.locator(LoginPage.fieldPassword);
     await fieldPassword.fill(testData.invalidLoginDetails.invalidPassword);
 
@@ -504,8 +508,8 @@ test('Email valid and password invalid', async ({ page }) => {
     await Loginbutton.click();
 
     // Assert error messages
-    const invalidPassword = page.locator(LoginPage.invalidPassword);
-    await expect(invalidPassword).toBeVisible();
+    const invalidPasswordLogIn = page.locator(LoginPage.invalidPasswordLogIn);
+    await expect(invalidPasswordLogIn).toBeVisible();
 
 });
 

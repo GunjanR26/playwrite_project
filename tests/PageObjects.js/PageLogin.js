@@ -13,14 +13,11 @@ class pageLogin {
         this.blankPasswordErrorLogIn = "xpath=//span[@data-testid='siteMembers.inlineErrorMsg' and normalize-space()='Make sure you enter a password.']";
         this.invalidLoginDetails = 'xpath=//span[normalize-space()="This email doesn\'t match any account. Try again."]';
         this.invalidEmailFormatLogIn = 'xpath=//span[normalize-space()="Double check your email and try again."]';
-        this.leadingtrailingSpacePassword = "xpath=//*[normalize-space()='Wrong email or password']";
-        this.spaceinEmail = 'xpath=//span[normalize-space()="Double check your email and try again."]';
-        this.spaceinPassword = "xpath=//span[@data-testid='siteMembers.inlineErrorMsg' and normalize-space()='Wrong email or password']";
-        this.invalidEmail = 'xpath=//span[normalize-space()="This email doesn\'t match any account. Try again."]';
-        this.invalidPassword = "xpath=//*[normalize-space()='Wrong email or password']";
-
-
-
+        this.leadingtrailingSpacePasswordLogIn = "xpath=//*[normalize-space()='Wrong email or password']";
+        this.spaceinEmailLogIn = 'xpath=//span[normalize-space()="Double check your email and try again."]';
+        this.spaceinPasswordLogIn = "xpath=//span[@data-testid='siteMembers.inlineErrorMsg' and normalize-space()='Wrong email or password']";
+        this.invalidEmailLogIn = 'xpath=//span[normalize-space()="This email doesn\'t match any account. Try again."]';
+        this.invalidPasswordLogIn = "xpath=//*[normalize-space()='Wrong email or password']";
     }
 
 }
