@@ -10,7 +10,7 @@ It covers key user flows like login, signup, and forgot password scenarios.
 ## 🚀 Tech Stack
 
 * Playwright
-* JavaScript / TypeScript
+* JavaScript
 * Node.js
 * VS Code
 
