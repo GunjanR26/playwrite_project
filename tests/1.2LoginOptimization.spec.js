@@ -492,7 +492,7 @@ test('Email valid and password invalid', async ({ page }) => {
     const buttonLoginSignup = page.locator(SignUpPage.buttonLoginSignup);
     await buttonLoginSignup.click();
 
-    // Wait a bit after page load (to allow popup to appear)
+    // Wait a bit after page load 
     await page.waitForTimeout(5000);
 
     //Enter valid registered Email

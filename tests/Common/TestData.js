@@ -4,10 +4,8 @@ export class testData {
         {
             Email: 'test@example.com',
             FirstName: 'Gunjan',
-            LastName: 'Ranparia',
+            LastName: 'Radadia',
             PhoneNumber: '+1234567890',
-
-
         }
 
     static checkoutDeliveryDetails =
@@ -36,39 +34,45 @@ export class testData {
             invalidPassword: '654321',
         }
     static invalidformat =
-    {
-        invaidEmailformat: 'test@example',
-    }
+        {
+            invaidEmailformat: 'test@example',
+        }
 
     static leadingtrailingSpace =
-    {
-        leadingtrailingSpaceEmail: '  stero26@gmail.com  ',
-        leadingtrailingSpacePassword: ' 123456  ',
-    }
-    
+        {
+            leadingtrailingSpaceEmail: '  stero26@gmail.com  ',
+            leadingtrailingSpacePassword: ' 123456  ',
+        }
+
     static middleSpace =
-    {
-        middleSpaceEmail: 'stero 26@gmail .com',
-        middleSpacePassword: '123 456',
-    }
+        {
+            middleSpaceEmail: 'stero 26@gmail .com',
+            middleSpacePassword: '123 456',
+        }
 
     static validSignUpDetails =
-    {
-        validUnregisteredEmail: 'test10@example.com',
-        validUnregisteredPassword: '123456',
-    }
+        {
+            validUnregisteredEmail: 'test10@example.com',
+            validUnregisteredPassword: '123456',
+        }
 
     static leadingtrailingSpaceSignUp =
-    {
-        leadingtrailingSpaceEmail: '  stero28@gmail.com  ',
-        leadingtrailingSpacePassword: ' 123456  ',
-    }
+        {
+            leadingtrailingSpaceEmail: '  stero28@gmail.com  ',
+            leadingtrailingSpacePassword: ' 123456  ',
+        }
 
     static middleSpaceSignUp =
-    {
-        middleSpaceEmailSignUp: 'stero 29@gmail .com',
-        middleSpacePasswordSignUp: '123 456',
-    
+        {
+            middleSpaceEmailSignUp: 'stero 29@gmail .com',
+            middleSpacePasswordSignUp: '123 456',
+        }
 
-    }
+    static ContactUsdetails =
+        {
+            FirstNameConatctUs: 'Hiren',
+            LastNameContactUs: 'Ranparia',
+            EmailContactUs: 'test@test.com',
+            MessageContactUs: 'This is testing message',
+        }
 }
