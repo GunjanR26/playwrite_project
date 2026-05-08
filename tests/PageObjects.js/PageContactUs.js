@@ -15,7 +15,9 @@ class PageContactUs {
         this.textareaMessageContactUs = "xpath=//textarea[@id='textarea_comp-m2vok78p' and contains(@class,'wixui-text-box__input')]";
         this.buttonSubmitContactUs = "xpath=//button[@data-testid='buttonElement' and @aria-label='Submit']";
         this.popupVerificationContactUs = "xpath=//h2[text()='Verification']";
-        
+        this.mandatoryvalidationEmailContactUs = "xpath=//input[@name='email']";
+        this.mandatoryvalidationCountryContactUs = "xpath=//select[@id='collection_comp-m2vok786' and @data-testid='select-trigger']";
+        this.invalidEmailFormatContactUs = "xpath=//input[@name='email']";
 
     }
 

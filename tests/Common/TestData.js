@@ -75,4 +75,9 @@ export class testData {
             EmailContactUs: 'test@test.com',
             MessageContactUs: 'This is testing message',
         }
+
+    static maxcharacterEmail =
+        {
+            EmailwithMaxcharacterlimit: 'ghgffgdshfgdshfgdhsfgsdhjfgdshjfgdshjdhfgdshfgdshfgdshfgsdhjfgshjdfgdshjfgdshfgdhsfgdshfgdshfgdshfgdshfgdhgdshfgsdhfgdhfgdhfgdhfgshfgsdhfgsdhfgdshfgsdhfgdshfgsdhfgdshfgdshfgsdhfgsdhjfgdshfgsdhjfgskhaghfjsdgkhfgsdhjfgdshkjfgfgdhgfsdsdsdsdhfgfdhgfdhfg@test.com',
+        }
 }
