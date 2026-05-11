@@ -80,4 +80,12 @@ export class testData {
         {
             EmailwithMaxcharacterlimit: 'ghgffgdshfgdshfgdhsfgsdhjfgdshjfgdshjdhfgdshfgdshfgdshfgsdhjfgshjdfgdshjfgdshfgdhsfgdshfgdshfgdshfgdshfgdhgdshfgsdhfgdhfgdhfgdhfgshfgsdhfgsdhfgdshfgsdhfgdshfgsdhfgdshfgdshfgsdhfgsdhjfgdshfgsdhjfgskhaghfjsdgkhfgsdhjfgdshkjfgfgdhgfsdsdsdsdhfgfdhgfdhfg@test.com',
         }
+    static GlobalSearch =
+        {
+            validGlobalSearch: 'ChatGPT',
+            invalidGlobalSearch: 'asdf',
+            partialGlobalSearch: 'Chat',
+            middleSpaceGlobalSerch: 'bis cotti',
+        }
+
 }
