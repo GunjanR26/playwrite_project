@@ -27,7 +27,7 @@ test('End to end purchase flow with xpath locators', async ({ page }) => {
 
   const plpPage = new pagePLP(page);
 
-  // Click on Shop option from dropdown
+  // Click on sorting option 
   const buttonSorting = page.locator(plpPage.buttonSorting);
   await buttonSorting.click();
 
@@ -44,7 +44,7 @@ test('End to end purchase flow with xpath locators', async ({ page }) => {
   await expect(confirmationmessage).not.toBeVisible();
 
   const cartPage = new pageCartPage(page);
-  
+
   // Click on View Cart button
   const buttonViewcart = page.locator(cartPage.buttonViewcart);
   //await buttonViewcart.waitFor();
@@ -111,14 +111,20 @@ test('End to end purchase flow with xpath locators', async ({ page }) => {
 
   // Click on Place Order & Pay button
   const buttonplaceorderandpay = page.locator(checkoutPage.buttonplaceorderandpay);
+
+  // Wait until enabled
+  await expect((buttonplaceorderandpay)).toBeEnabled();
+
+  // Click on button
   await buttonplaceorderandpay.click();
 
   // Wait for load time
   //await waitForTimeout(5000);
 
-  // Add assertion
-  const successMsg = page.getByText("You\'ll receive a confirmation email soon.");
-  const errorMsg = page.getByText(/error|failed/i);
+  // Add assertion wait for success message
+  const successMsg = page.locator(checkoutPage.successMessage);
+  await expect((successMsg)).toBeVisible({ timeout: 15000 });
+
 
   if (await successMsg.isVisible().catch(() => false)) {
     console.log('✅ Order success');

@@ -14,6 +14,7 @@ class pageCheckoutPage {
         this.buttonContinue = "xpath=//button[.//span[text()='Continue']]";
         this.buttonOrdersummaryContinue = "xpath=//button[@data-hook='DeliverySectionWrapperDataHook.button']";
         this.buttonplaceorderandpay = "xpath=//button[@data-hook='place-order-button']";
+        this.successMessage = 'xpath=//div[@data-hook="HeaderDataHook.subtitle"]//span[contains(text(),"confirmation email soon")]';
 
 
 
