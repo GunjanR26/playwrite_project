@@ -230,7 +230,7 @@ test('Purchase product using filter by size method - check validation', async ({
         .locator(plpPage.errorSizeProductdetailpopupCappuccino);
     await expect((errorSizeProductdetailpopupCappuccino)).toBeVisible();
 
-    await page.pause();
+    //await page.pause();
 });
 
 
