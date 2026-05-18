@@ -16,16 +16,16 @@ class pagePLP {
         this.dropdownTypePurchaseFilterbyPrice = "xpath=//select[@data-hook='native-select' and @aria-label='Type']";
         this.buttonQuantityPurchaseFilterbyPrice = 'xpath=//button[@class="s__62cEX6 swTmkp2 sCORvhT has-custom-focus"]';
         this.buttonAddtocartProductdetailpopupTeaPurchaseFilterbyPrice = "xpath=//div[@class='siy7RL']//button[@data-hook='add-to-cart']";
-        this.buttonViewcartPurchaseFilterbyPrice = "xpath=//button[@data-hook='CartButtonDataHooks.root']//span[text()='View Cart']";
-        this.buttonCheckoutPurchaseFilterbyPrice = "xpath=//a[@data-hook='CheckoutButtonDataHook.button']";
-        this.errorSizeProductdetailpopup = "xpath=//div[@id='error-message-2' and @data-hook='errormessagewrapper-message' and contains(text(),'Select Size')]";
-        this.errorTypeProducedetailpopup = "xpath=//div[@data-hook='errormessagewrapper-message' and @id='error-message-5' and normalize-space()='Select Type']";
+        this.buttonViewcart = "xpath=//button[@data-hook='CartButtonDataHooks.root']//span[text()='View Cart']";
+        this.buttonCheckout = "xpath=//a[@data-hook='CheckoutButtonDataHook.button']";
+        this.errorSizeProductdetailpopupTea = "xpath=//div[@id='error-message-2' and @data-hook='errormessagewrapper-message' and contains(text(),'Select Size')]";
+        this.errorTypeProducedetailpopupTea = "xpath=//div[@data-hook='errormessagewrapper-message' and @id='error-message-5' and normalize-space()='Select Type']";
         
         
         //xpath of Purchse Filter by Color
         this.buttonColorPurchaseFilterbycolor = "xpath=//span[@data-hook='filter-title' and text()='Color'] /ancestor::button //span[@data-hook='filter-expand-icon' and contains(@class,'vsscqN')]";
         this.optionPurpleColorPurchaseFilterbycolor = "xpath=//label[@data-hook='color-sample'][.//input[@aria-label='Purple']]//span[@data-hook='color-sample-color']";
-        this.buttonClearAllPurchaseFilterbycolor = "xpath=//button[@data-hook='applied-filters-clear' and .//span[text()='Clear All']]";
+        this.buttonClearAll = "xpath=//button[@data-hook='applied-filters-clear' and .//span[text()='Clear All']]";
         this.optionBlackColorPurchaseFilterbycolor = "xpath=//label[@data-hook='color-sample'][.//input[@aria-label='Black']]//span[@data-hook='color-sample-color']";
         this.optionWhiteColorPurchaseFilterbycolor = "xpath=//label[@data-hook='color-sample'][.//input[@aria-label='White']]//span[@data-hook='color-sample-color']";
         this.buttonAddtocartChatGPT2PurchaseFilterbycolor = "xpath=//p[@data-hook='product-item-name' and text()='ChatGPT 2']/ancestor::li//button[@data-hook='product-item-add-to-cart-button']";
@@ -33,11 +33,19 @@ class pagePLP {
         this.optionPurpleProductdetailpopupChatGPT2PurchaseFilterbycolor = "xpath=//div[@class='sv_Nsfg'][.//input[@aria-label='Purple']]//span[@data-hook='icon']";
         this.buttonQuantityProductdetailpopupChatGPT2PurchaseFilterbycolor = 'xpath=//button[@class="s__62cEX6 swTmkp2 sCORvhT has-custom-focus"]';
         this.buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor = "xpath=//div[@class='siy7RL']//button[@data-hook='add-to-cart']";
-        this.buttonViewcartPurchaseFilterbycolor = "xpath=//button[@data-hook='CartButtonDataHooks.root']//span[text()='View Cart']";
-        this.buttonCheckoutPurchaseFilterbycolor = "xpath=//a[@data-hook='CheckoutButtonDataHook.button']";
+        
         this.errorColorProductdetailpopup = "xpath=//div[@data-hook='errormessagewrapper-message' and @id='error-message-1' and normalize-space()='Select Color']";
         this.linkViewmoredetailsProductdetailpopupChatGPT2= "xpath=//a[@data-hook='quick-view-more' and @href='https://www.testing101.net/product-page/chatgpt-2' and normalize-space()='View More Details']";
         
+        //xpath of Purchase Filter by Size
+        this.buttonSizePurchaseFilterbysize = "xpath=//button[@type='button' and @data-hook='filter-title-wrapper' and .//span[@data-hook='filter-title' and text()='Size']]";
+        this.option80mlSizePurchaseFilterbysize = "xpath=//label[@data-hook='checkbox-core'][.//div[@data-hook='label-wrapper' and normalize-space()='80 ml']]";
+        this.buttonAddtocartCappuccinoPurchaseFilterbysize = "xpath=//li[.//p[@data-hook='product-item-name' and normalize-space()='Cappuccino']]//button[@data-hook='product-item-add-to-cart-button']";
+        this.iframeProductdetailpopupCappuccinoPurchaseFilterbysize = "xpath=//iframe[@title='Cappuccino' and @aria-label='Cappuccino' and contains(@src,'/product/cappuccino')]";
+        this.dropdownSizeProductdetailpopupCappuccinoPurchaseFilterbysize = "xpath=//div[contains(@class,'sAE_kc_')]//select[@data-hook='native-select' and @aria-label='Size']";
+        this.buttonQuantityProductdetailpopupCappuccinoPurchaseFilterbysize = "xpath=//button[@data-hook='counter-plus-button' and @aria-label='Increment']";
+        this.buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize = "xpath=//button[@data-hook='add-to-cart' and @data-mobile='true' and @aria-disabled='false' and .//span[text()='Add to Cart']]";
+        this.errorSizeProductdetailpopupCappuccino = "xpath=//div[@id='error-message-2' and @data-hook='errormessagewrapper-message' and normalize-space()='Select Size']";
     }
 
 

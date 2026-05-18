@@ -14,7 +14,7 @@ test('Purchase product using filter by price method - valid scenario', async ({ 
     // Navigate to the website
     await page.goto(URLs.pageLinkCategoryAllProducts);
 
-    //Consent popop
+    //Consent popup
     //const consentPopupWindow = new ConsentPopup(page);
     //await consentPopupWindow.clickManageOptions();
 
@@ -26,10 +26,11 @@ test('Purchase product using filter by price method - valid scenario', async ({ 
         await page.getByLabel('Consent', { exact: true }).click();
 
 
-
+    // Create a new object of class pagePLP and pass Playwright’s page into it
     const plpPage = new pagePLP(page);
+
+    // focus on slider
     const sliderPricePurchaseFlterbyPrice = page.locator(plpPage.sliderPricePurchaseFlterbyPrice);
-    //// focus on slider
     await sliderPricePurchaseFlterbyPrice.focus();
 
     /*
@@ -114,12 +115,12 @@ i.e. if you want to set slider value 98 in UI, then set the value 91 in followin
     await page.waitForTimeout(1000);
 
     // Click on View Cart button of Cart page
-    const buttonViewcartPurchaseFilterbyPrice = page.locator(plpPage.buttonViewcartPurchaseFilterbyPrice);
-    await buttonViewcartPurchaseFilterbyPrice.click();
+    const buttonViewcart = page.locator(plpPage.buttonViewcart);
+    await buttonViewcart.click();
 
     //Click on Checkout button
-    const buttonCheckoutPurchaseFilterbyPrice = page.locator(plpPage.buttonCheckoutPurchaseFilterbyPrice);
-    await buttonCheckoutPurchaseFilterbyPrice.click();
+    const buttonCheckout = page.locator(plpPage.buttonCheckout);
+    await buttonCheckout.click();
 
     //Add Assertion
     const cartPage = new pageCartPage(page);
@@ -214,7 +215,7 @@ test('Purchase product using filter by price method - Check validation', async (
     // Navigate to the website
     await page.goto(URLs.pageLinkCategoryAllProducts);
 
-    //Consent popop
+    //Consent popup
     //const consentPopupWindow = new ConsentPopup(page);
     //await consentPopupWindow.clickManageOptions();
 
@@ -284,19 +285,16 @@ i.e. if you want to set slider value 98 in UI, then set the value 91 in followin
     await buttonAddtocartProductdetailpopupTeaPurchaseFilterbyPrice.click();
 
     // Add Assertion - Error message of Type and Size
-    const errorSizeProductdetailpopup = page
+    const errorSizeProductdetailpopupTea = page
         .frameLocator(plpPage.iframeProductdetailpopupTeaPurchaseFilterbyPrice)
-        .locator(plpPage.errorSizeProductdetailpopup);
-    await expect((errorSizeProductdetailpopup)).toBeVisible();
+        .locator(plpPage.errorSizeProductdetailpopupTea);
+    await expect((errorSizeProductdetailpopupTea)).toBeVisible();
 
-    const errorTypeProducedetailpopup = page
+    const errorTypeProducedetailpopupTea = page
         .frameLocator(plpPage.iframeProductdetailpopupTeaPurchaseFilterbyPrice)
-        .locator(plpPage.errorTypeProducedetailpopup);
-    await expect((errorTypeProducedetailpopup)).toBeVisible();
+        .locator(plpPage.errorTypeProducedetailpopupTea);
+    await expect((errorTypeProducedetailpopupTea)).toBeVisible();
 
-
-
-    await page.pause();
 
 });
 

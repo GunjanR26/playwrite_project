@@ -8,7 +8,7 @@ import { testData } from './Common/TestData';
 
 
 
-test('Purchase product using filter by color method', async ({ page }) => {
+test('Purchase product using filter by size method', async ({ page }) => {
     test.setTimeout(50000);
 
     // Navigate to the website
@@ -28,86 +28,55 @@ test('Purchase product using filter by color method', async ({ page }) => {
     // Create a new object of class pagePLP and pass Playwright’s page into it
     const plpPage = new pagePLP(page);
 
-    // Click on + icon of color
-    const buttonColorPurchaseFilterbycolor = page.locator(plpPage.buttonColorPurchaseFilterbycolor);
-    await buttonColorPurchaseFilterbycolor.click();
+    // Click on + icon of the size
+    const buttonSizePurchaseFilterbysize = page.locator(plpPage.buttonSizePurchaseFilterbysize);
+    await expect(buttonSizePurchaseFilterbysize).toBeVisible();
+    await buttonSizePurchaseFilterbysize.click();
 
-    // Click on Purple color
-    const optionPurpleColorPurchaseFilterbycolor = page.locator(plpPage.optionPurpleColorPurchaseFilterbycolor);
-    await optionPurpleColorPurchaseFilterbycolor.click();
+    // select checkbox of  80ml 
+    const option80mlSizePurchaseFilterbysize = page.locator(plpPage.option80mlSizePurchaseFilterbysize);
+    await expect(option80mlSizePurchaseFilterbysize).toBeVisible();
+    await option80mlSizePurchaseFilterbysize.click();
 
-    // Wait a bit after applying color filter (to allow products to appear)
+    // Wait a bit after applying size filter (to allow products to appear)
     await page.waitForTimeout(1000);
 
-    // Add Assertion - Filter by color should be displayed along with Clear All option 
+    // Add Assertion - Filter by size should be displayed along with Clear All option
     const buttonClearAll = page.locator(plpPage.buttonClearAll);
     await expect((buttonClearAll)).toBeVisible();
 
-    // Click on Clear All option
-    await buttonClearAll.click();
-
-    // Add Assertion - Clear All option should not be displayed
-    await expect((buttonClearAll)).not.toBeVisible();
-
-    // Click on Black color
-    const optionBlackColorPurchaseFilterbycolor = page.locator(plpPage.optionBlackColorPurchaseFilterbycolor);
-    await optionBlackColorPurchaseFilterbycolor.click();
-
-    // Wait a bit after applying color filter (to allow products to appear)
-    await page.waitForTimeout(1000);
-
-    // Add Assertion - Filter by color should be displayed along with Clear All option 
-    await expect((buttonClearAll)).toBeVisible();
-
-    // Click on Clear All option
-    await buttonClearAll.click();
-
-    // Add Assertion - Clear All option should not be displayed
-    await expect((buttonClearAll)).not.toBeVisible();
-
-    // Click on White color
-    const optionWhiteColorPurchaseFilterbycolor = page.locator(plpPage.optionWhiteColorPurchaseFilterbycolor);
-    await optionWhiteColorPurchaseFilterbycolor.click();
-
-    // Wait a bit after applying color filter (to allow products to appear)
-    await page.waitForTimeout(1000);
-
-    // Add Assertion - Filter by color should be displayed along with Clear All option 
-    await expect((buttonClearAll)).toBeVisible();
-
-    // Click on - icon of Color Filter to make it Shrink
-    await buttonColorPurchaseFilterbycolor.click();
-
-    // Click on Add to cart button of ChatGPT2
-    const buttonAddtocartChatGPT2PurchaseFilterbycolor = page.locator(plpPage.buttonAddtocartChatGPT2PurchaseFilterbycolor);
-    await buttonAddtocartChatGPT2PurchaseFilterbycolor.click();
+    // Click on Add to cart button of Cappuccino
+    const buttonAddtocartCappuccinoPurchaseFilterbysize = page.locator(plpPage.buttonAddtocartCappuccinoPurchaseFilterbysize);
+    await buttonAddtocartCappuccinoPurchaseFilterbysize.click();
 
     // Wait a bit after page load (to allow products to appear)
     await page.waitForTimeout(1000);
 
-    // Wait until  page load
-    // await page.waitForTimeout(1000);
+    // Product detail popup of Cappuccino - select size
+    const dropdownSizeProductdetailpopupCappuccinoPurchaseFilterbysize = page
+        .frameLocator(plpPage.iframeProductdetailpopupCappuccinoPurchaseFilterbysize)
+        .locator(plpPage.dropdownSizeProductdetailpopupCappuccinoPurchaseFilterbysize);
+    await dropdownSizeProductdetailpopupCappuccinoPurchaseFilterbysize.click();
+    await dropdownSizeProductdetailpopupCappuccinoPurchaseFilterbysize.press('ArrowDown'); //Trigger Dropdown
+    //await page.waitForTimeout(2000);
 
-    // Product detail popup select color
-    const optionPurpleProductdetailpopupChatGPT2PurchaseFilterbycolor = page
-        .frameLocator(plpPage.iframeProducedetailpopupChatGPT2PurchaseFilterbycolor)
-        .locator(plpPage.optionPurpleProductdetailpopupChatGPT2PurchaseFilterbycolor);
-    await optionPurpleProductdetailpopupChatGPT2PurchaseFilterbycolor.click();
+    // Select option using value attribute
+    await dropdownSizeProductdetailpopupCappuccinoPurchaseFilterbysize.selectOption('3');
 
-    // Incrased quantity
-    const buttonQuantityProductdetailpopupChatGPT2PurchaseFilterbycolor = page
-        .frameLocator(plpPage.iframeProducedetailpopupChatGPT2PurchaseFilterbycolor)
-        .locator(plpPage.buttonQuantityProductdetailpopupChatGPT2PurchaseFilterbycolor);
-    await buttonQuantityProductdetailpopupChatGPT2PurchaseFilterbycolor.dblclick();
-
-    // Click on Add To Cart button of Product Detail popup
-    const buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor = page
-        .frameLocator(plpPage.iframeProducedetailpopupChatGPT2PurchaseFilterbycolor)
-        .locator(plpPage.buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor);
-    await buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor.click();
-
-    // Wait until Cart page load
+    // Wait until option is selected 
     await page.waitForTimeout(1000);
+
+    // Increse the quantity
+    const buttonQuantityProductdetailpopupCappuccinoPurchaseFilterbysize = page
+        .frameLocator(plpPage.iframeProductdetailpopupCappuccinoPurchaseFilterbysize)
+        .locator(plpPage.buttonQuantityProductdetailpopupCappuccinoPurchaseFilterbysize);
+    await buttonQuantityProductdetailpopupCappuccinoPurchaseFilterbysize.dblclick();
+
+    // Click on Add To cart button of product detail popup
+    const buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize = page
+        .frameLocator(plpPage.iframeProductdetailpopupCappuccinoPurchaseFilterbysize)
+        .locator(plpPage.buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize);
+    await buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize.click();
 
     // Click on View Cart button of Cart page
     const buttonViewcart = page.locator(plpPage.buttonViewcart);
@@ -203,8 +172,7 @@ test('Purchase product using filter by color method', async ({ page }) => {
 });
 
 
-
-test('Purchase product using filter by color method - check validation', async ({ page }) => {
+test('Purchase product using filter by size method - check validation', async ({ page }) => {
     test.setTimeout(50000);
 
     // Navigate to the website
@@ -221,49 +189,53 @@ test('Purchase product using filter by color method - check validation', async (
     if (await page.getByLabel('Consent', { exact: true }).isVisible())
         await page.getByLabel('Consent', { exact: true }).click();
 
+    // Create a new object of class pagePLP and pass Playwright’s page into it
     const plpPage = new pagePLP(page);
 
-    // Click on + icon of color
-    const buttonColorPurchaseFilterbycolor = page.locator(plpPage.buttonColorPurchaseFilterbycolor);
-    await buttonColorPurchaseFilterbycolor.click();
+    // Click on + icon of the size
+    const buttonSizePurchaseFilterbysize = page.locator(plpPage.buttonSizePurchaseFilterbysize);
+    await expect(buttonSizePurchaseFilterbysize).toBeVisible();
+    await buttonSizePurchaseFilterbysize.click();
 
-    // Click on White color
-    const optionWhiteColorPurchaseFilterbycolor = page.locator(plpPage.optionWhiteColorPurchaseFilterbycolor);
-    await optionWhiteColorPurchaseFilterbycolor.click();
+    // select checkbox of  80ml 
+    const option80mlSizePurchaseFilterbysize = page.locator(plpPage.option80mlSizePurchaseFilterbysize);
+    await expect(option80mlSizePurchaseFilterbysize).toBeVisible();
+    await option80mlSizePurchaseFilterbysize.click();
 
-    // Wait a bit after applying color filter (to allow products to appear)
+    // Wait a bit after applying size filter (to allow products to appear)
     await page.waitForTimeout(1000);
 
-    // Add Assertion - Filter by color should be displayed along with Clear All option 
+    // Add Assertion - Filter by size should be displayed along with Clear All option
     const buttonClearAll = page.locator(plpPage.buttonClearAll);
     await expect((buttonClearAll)).toBeVisible();
 
-    // Click on - icon of Color Filter to make it Shrink
-    await buttonColorPurchaseFilterbycolor.click();
-
-    // Click on Add to cart button of ChatGPT2
-    const buttonAddtocartChatGPT2PurchaseFilterbycolor = page.locator(plpPage.buttonAddtocartChatGPT2PurchaseFilterbycolor);
-    await buttonAddtocartChatGPT2PurchaseFilterbycolor.click();
+    // Click on Add to cart button of Cappuccino
+    const buttonAddtocartCappuccinoPurchaseFilterbysize = page.locator(plpPage.buttonAddtocartCappuccinoPurchaseFilterbysize);
+    await buttonAddtocartCappuccinoPurchaseFilterbysize.click();
 
     // Wait a bit after page load (to allow products to appear)
     await page.waitForTimeout(1000);
 
-    // Do not select color
-    // Do not incresed quantity
+    // Product detail popup of Cappuccino - Do not selct size
 
-    // Click on Add To Cart button of Product Detail popup
-    const buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor = page
-        .frameLocator(plpPage.iframeProducedetailpopupChatGPT2PurchaseFilterbycolor)
-        .locator(plpPage.buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor);
-    await buttonAddtocartProductdetailpopupChatGPT2PurchaseFilterbycolor.click();
+    // Click on Add To cart button of product detail popup
+    const buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize = page
+        .frameLocator(plpPage.iframeProductdetailpopupCappuccinoPurchaseFilterbysize)
+        .locator(plpPage.buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize);
+    await buttonAddtocartProductdetailpopupCappuccinoPurchaseFilterbysize.click();
 
-    // Add Assertion
-    const errorColorProductdetailpopup = page
-        .frameLocator(plpPage.iframeProducedetailpopupChatGPT2PurchaseFilterbycolor)
-        .locator(plpPage.errorColorProductdetailpopup);
-    await expect((errorColorProductdetailpopup)).toBeVisible();
-
-    await page.pause();
+    // Add Assertion - Error message
+    const errorSizeProductdetailpopupCappuccino = page
+        .frameLocator(plpPage.iframeProductdetailpopupCappuccinoPurchaseFilterbysize)
+        .locator(plpPage.errorSizeProductdetailpopupCappuccino);
+    await expect((errorSizeProductdetailpopupCappuccino)).toBeVisible();
 
 
 });
+
+
+
+
+
+
+
